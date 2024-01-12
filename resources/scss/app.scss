@@ -1,5 +1,98 @@
+@use "./partials/mixin" as *;
+@use "./partials/variables" as *;
+@use "./partials/generals" as *;
+
 @import "~bootstrap/scss/bootstrap";
 
-body {
-    background-color: lightgreen;
+// HEADER
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+
+    .logo {
+        text-align: center;
+
+        img {
+            width: 80px;
+        }
+    }
+
+    ul {
+        @include flex(row, center, center);
+        list-style: none;
+        gap: 1rem;
+        font-size: 0.8rem;
+
+        a {
+            text-decoration: none;
+            color: black;
+            padding: 1rem;
+            padding-bottom: 3rem;
+
+            &:hover {
+                color: $primary;
+                border-bottom: 4px solid $primary;
+            }
+
+            &.active {
+                color: $primary;
+                border-bottom: 4px solid $primary;
+            }
+        }
+    }
+}
+
+// HERO
+
+.banner {
+     
+    img {
+        display: block;
+    }
+}
+.series {
+    background-color: #1C1C1C;
+
+    span {
+        color: white;
+        padding: 0.7rem 1.5rem;
+        background-color: $primary;
+        position: relative;
+        top: -10px;
+    }
+
+    .row {
+        @include cardFlex(row, center, stretch, wrap);
+
+        .col {
+            width: calc(100% / 6);
+            padding: 0 10px;
+            margin-top: 2rem;
+
+            .ms_card {
+                
+                h3 {
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .btn {
+        text-align: center;
+        padding-bottom: 2rem;
+        margin-top: 2rem;
+
+        a {
+            background-color: $primary;
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 0.7rem 3rem;
+            text-decoration: none;
+        }
+    }
 }
